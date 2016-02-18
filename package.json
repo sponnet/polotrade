@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "autobahn": "^0.9.9",
+    "dotenv": "^2.0.0",
     "poloniex.js": "0.0.6"
   }
 }
