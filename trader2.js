@@ -60,12 +60,12 @@ function getTicker() {
 		var koop;
 		var verkoop;
 		if (pctchange > 0) {
-			koop = saldoBTC * pctchange / 10;
+			koop = saldoBTC * pctchange / 2;
 		} else {
 			koop = 0;
 		}
 		if (pctchange < 0) {
-			verkoop = saldoBTC * pctchange / 10;
+			verkoop = saldoETH * pctchange / 2;
 		}else{
 			verkoop=0;
 		}
@@ -75,10 +75,10 @@ function getTicker() {
 		console.log('koop=', koop);
 
 		if (koop !== 0 && saldoBTC > koop) {
-			buy(parseFloat(data.BTC_ETH.last), koop);
+			buy(wisselkoers, koop);
 		}
-		if (verkoop !== 0 && saldoETH/parseFloat(data.BTC_ETH.last) > verkoop) {
-			sell(parseFloat(data.BTC_ETH.last), verkoop);
+		if (verkoop !== 0 && saldoETH/wisselkoers > verkoop) {
+			sell(wisselkoers, verkoop/wisselkoers);
 		}
 
 		printPortemonee();
